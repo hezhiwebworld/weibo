@@ -1,0 +1,156 @@
+/*通用样式*/
+/*初始化样式start*/
+html,body,ul,li,p,h1,h2,h3,form,img,b,span,i,em,u{margin: 0;padding: 0;}
+li{list-style: none;}
+a{text-decoration: none;color: black;}
+input,img{border: none;}
+input{padding-top: 0px;padding-bottom: 0px;}
+body{background: $#FFFFFF;font-size: 12px;font-family: "微软雅黑";font-weight: 400;}
+h1,h2,h3{font-weight: normal;}
+
+/*初始化样式end*/
+/*公共样式 */
+.center{margin: 0 auto;width: 1200px;}
+.fl{float: left;}
+.fr{float: right;}
+b{font-weight: normal;}
+input{outline: none;}
+
+/*公共样式*/
+
+header{
+	background:pink;
+	width:1200px;
+	height:150px;
+	line-height:150px;
+	margin:0 auto;
+	font-family:'微软雅黑';
+	font-size:30px;
+	text-align:center;
+}
+#nav{
+	width:1200px;
+	height:30px;
+	line-height:30px;
+	margin:0 auto;
+	background:green;
+	
+}
+#nav ul li {
+	float:left;
+	width:200px;
+	text-align:center;
+}
+.c_f{
+	width:800px;
+	margin:0 auto;
+	float:left;
+}
+.listBox{
+	width:800px;
+	height:180px;
+	background:red;
+	margin-top:15px;
+}
+.listBox h1{
+	height:50px;
+	line-height:50px;
+	text-align:center;
+}
+.colDefault{
+	width:800px;
+	margin:0 auto;
+	text-align:center;
+}
+.function{
+	width:600px;
+	height:50px;
+	margin:0 auto;
+	margin-top:20px;
+}
+.c_r{
+	width:380px;
+	float:right;
+	background:pink;
+	margin-top:15px;
+}
+.rightBox{
+	height:150px;
+	margin-bottom:15px;
+	background:black;
+	color:white;
+}
+.rightBox a{
+	color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
