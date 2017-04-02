@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+<!-- 巨幕 -->
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><a href="/user">用户首页</a></li>
+    <li class="active">分类列表</li>
+</ol>
+
+<table class="table table-striped">
+
+    <tr>
+        <th>id</th>
+        <th>分类名</th>
+
+        <th>操作</th>
+    </tr>
+    <!--分页-->
+    {% include 'pages.html'%}
+
+    {% for category in categories %}
+    <tr>
+        <td>{{category._id.toString()}}</td>
+        <td>{{category.categoryname}}</td>
+
+        <td>
+            <a href="/admin/edit?id={{category._id.toString()}}">修改</a>|
+            <a href="/admin/delete?id={{category._id.toString()}}">删除</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!--分页-->
+{% include 'pages.html'%}
+
+{% endblock %}

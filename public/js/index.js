@@ -3,6 +3,8 @@ $(function(){
 	//获取元素
 	var $loginBox = $('#loginBox');
     var $registerBox = $('#registerBox');
+
+    var $logout = $('#logout');
 	
 	//跳转到注册页面
 	 $loginBox.find('a.colMint').on('click', function() {
@@ -60,21 +62,28 @@ $(function(){
             },
             dataType: 'json',
             success: function(result) {
-              
-				$registerBox.find('.colWarning').html(result.message);
-				if(!result.code){
-					setTimeout(function(){
-						 $registerBox.hide();
-						 $loginBox.show();
-					},1000)
-				}
+
+                $loginBox.find('.colWarning').html(result.message);
+                if (!result.code) {
+                    window.location.reload();
+                }
             }
         });
     });
-	
-	
-	
-	
+
+    //退出
+    $logout.on('click', function () {
+        //通过ajax提交请求
+        $.ajax({
+            type: 'get',
+            url: '/api/user/logout',
+            success: function (result) {
+                if (!result.code) {
+                    window.location.reload();
+                }
+            }
+        });
+    });
 })
 
 

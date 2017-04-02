@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+{{message}}
+{%  if url %}
+<a href="{{url}}">返回上一步</a>
+{% else %}
+<a href="javascript:window.history.back();">返回上一步</a>
+{% endif %}
+
+
+{% endblock %}

@@ -8,11 +8,17 @@ var mongoose = require('mongoose');
 
 //加载body-parser ,用来处理post提交过来的数据
 var bodyParser = require('body-parser');
+//加载cookies模块
+var Cookies = require('cookies');
+
 
 
 //创建app应用=》 等同于服务端的对象Http.createServer()
 var app = express();
 
+//引入用户模型
+var User = require('./models/User');
+var Category = require('./models/Category');
 //设置静态文件托管
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -30,6 +36,28 @@ swig.setDefaults({cache:false});
 app.use(bodyParser.urlencoded({extended:true}));
 //会自动在后端req添加一个属性body，保存post的数据
 
+app.use(function (req, res, next) {
+    req.cookies = new Cookies(req, res);
+    //用一个自定义对象来存储cookies
+    req.userInfo = {};
+    if (req.cookies.get('userInfo')) {
+        try {
+            req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+            //获取当前用户类型是否为管理员
+            User.findById(req.userInfo._id).then(function (userInfo) {
+                req.userInfo.isadmin = Boolean(userInfo.isadmin);
+                next();
+            })
+
+        } catch (e) {
+            next();
+        }
+    } else {
+        next();
+    }
+
+
+})
 
 
 //根据不同功能划分模块

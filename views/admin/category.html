@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+<!-- 巨幕 -->
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><a href="/user">分类首页</a></li>
+
+</ol>
+
+<table class="table table-striped">
+
+    <tr>
+        <th>id</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>是否是管理员</th>
+    </tr>
+    <!--分页-->
+    {% include 'pages.html'%}
+
+
+    <!--分页-->
+    {% include 'pages.html'%}
+</table>
+
+
+{% endblock %}

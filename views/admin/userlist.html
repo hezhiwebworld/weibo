@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+<!-- 巨幕 -->
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><a href="/admin/user">用户首页</a></li>
+    <li class="active">Data</li>
+</ol>
+
+<table class="table table-striped">
+
+    <tr>
+        <th>id</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>是否是管理员</th>
+    </tr>
+    <!--分页-->
+    {% include 'pages.html'%}
+
+    {% for user in users %}
+    <tr>
+        <td>{{user._id.toString()}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.password}}</td>
+        <td>
+            {%if user.isadmin%}
+            是
+            {%endif%}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!--分页-->
+{% include 'pages.html'%}
+
+{% endblock %}

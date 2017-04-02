@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+<!-- 巨幕 -->
+<ol class="breadcrumb">
+    <li><a href="/">后台管理</a></li>
+
+    <li class="active">内容列表</li>
+</ol>
+
+<table class="table table-striped">
+
+    <tr>
+        <th>id</th>
+        <th>内容标题</th>
+
+        <th>分类</th>
+        <th>操作</th>
+    </tr>
+    <!--分页-->
+
+
+    {% for content in contents %}
+    <tr>
+        <td>{{content._id.toString()}}</td>
+        <td>{{content.title}}</td>
+        <td>{{content.category.id.toString()}}</td>
+        <td>
+            <a href="/admin/edit?id={{content._id.toString()}}">修改</a>|
+            <a href="/admin/delete?id={{content._id.toString()}}">删除</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!--分页-->
+{% include 'pages.html'%}
+
+{% endblock %}

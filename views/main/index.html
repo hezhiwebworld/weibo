@@ -9,18 +9,18 @@
 	</head>
 	<body>
 		<header>个人博客首页</header>
+
 		<nav id="nav">
 			<ul>
-			<li><a href="#">首页</a></li>
-			<li><a href="#">话说新闻</a></li>
-			<li><a href="#">热门信息</a></li>
-			<li><a href="#">大主宰</a></li>
-			<li><a href="#">雪鹰领主</a></li>
-			<li><a href="#">完美世界</a></li>
+                {% for category in categories %}
+                <li><a href="#">{{category.categoryname}}</a></li>
+                {% endfor %}
 			</ul>
 			
 		</nav>
-		<div class="center">
+
+
+        <div class="center">
 			<div class="c_f">
 				<div class="listBox">
 					<h1>1111111111111111</h1>
@@ -60,17 +60,25 @@
 
 				</div>
 			</div>
+
 			<div class="c_r">
 				<!-- 登录后的状态 -->
-				<!-- <div class="rightBox">
-					<div class="title"><span>用户信息</span></div>
-					<p><span class="colDark">admin</span></p>
-					<p><span class="colDanger">你好</span></p>
-					<p><span class="colDark"><a href="javascript:;" id="logout">退出</a></span></p>
-				</div> -->
-				
+                {% if userInfo._id %}
+                <div class="rightBox" id="userinfo">
+
+                    <div class="title"><span>用户信息</span></div>
+                    <p><span class="colDark">{{userInfo.username}}</span></p>
+                    {% if userInfo.isadmin %}
+                    <p><span class="colDanger">你好,管理员</span><a href="/admin">进入后台管理</a></p>
+                    {% else %}
+                    <p><span class="colDanger">你好,欢迎光临我的博客</span></p>
+                    {% endif %}
+
+                    <p><span class="colDark "><a href="javascript:;" id="logout">退出</a></span></p>
+                </div>
+                {% else %}
 				<!-- 登录面板 -->
-				 <div class="rightBox" id="loginBox">
+                <div class="rightBox" id="loginBox">
 					<div class="title"><span>登录</span></div>
 					<div class="line"><span class="colDark">用户名：</span><input name="username" type="text" /><em></em></div>
 					<div class="line"><span class="colDark">密码：</span><input name="password" type="password" /><em></em></div>
@@ -80,7 +88,7 @@
 				</div>
 
 				<!-- 注册面板 -->
-				<div class="rightBox" id="registerBox" style="display:none;" >
+                <div class="rightBox" id="registerBox" style="display:none;">
 					<div class="title"><span>注册</span></div>
 					<div class="line"><span class="colDark">用户名：</span><input name="username" type="text" /></div>
 					<div class="line"><span class="colDark">密码：</span><input name="password" type="password" /></div>
@@ -89,6 +97,7 @@
 					<p class="textRight">已有账号？<a href="javascript:;" class="colMint">马上登录</a>　</p>
 					<p class="colWarning textCenter"></p>
 				</div>
+                {% endif %}
 				<!-- 社区 -->
 				 <div class="rightBox">
 					<div class="title"><span>社区</span></div>

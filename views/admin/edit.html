@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+<!-- 巨幕 -->
+<ol class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><a href="/category">分类首页</a></li>
+
+</ol>
+
+<form method="post" role="form">
+
+    <div class="form-group">
+        <label for="categoryname">修改并添加</label>
+        <input type="text" class="form-control" id="categoryname" value="{{category.categoryname}}" name="categoryname">
+        <!--此处name关联自定义数据库表结构-->
+    </div>
+    <button type="submit" class="btn btn-default">添加</button>
+</form>
+
+{% endblock %}

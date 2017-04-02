@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+<!-- 巨幕 -->
+<ol class="breadcrumb">
+    <li><a href="/admin">后台管理</a></li>
+    <li class="active"><a href="#">内容添加</a></li>
+
+</ol>
+
+<form method="post" role="form">
+    <div class="form-group">
+        <label name="category">博文栏目</label>
+        <select name="category">
+            {% for cate in categories%}
+            <option value="{{cate.id}}">{{cate.categoryname}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="title">内容标题：</label>
+        <input type="text" class="form-control" id="title" placeholder="请输入博文标题" name="title"> <!--此处name关联自定义数据库表结构-->
+    </div>
+    <div class="form-group">
+        <label for="miaoshu">博文简介：</label>
+        <input type="text" class="form-control" id="miaoshu" placeholder="请输入博文简介" name="miaoshu">
+        <!--此处name关联自定义数据库表结构-->
+    </div>
+    <div class="form-group">
+        <label for="content">正文：</label>
+        <!--<input type="textarea" class="form-control" id="content" placeholder="请输入正文" name="content">此处name关联自定义数据库表结构-->
+        <textarea rows="3" cols="20" class="form-control" id="content" placeholder="请输入正文" name="content"></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">添加</button>
+</form>
+
+{% endblock %}

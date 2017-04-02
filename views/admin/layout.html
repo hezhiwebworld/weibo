@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/public/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/public/bootstrap-theme.min.css" type="text/css"/>
+    <script src="/public/js/jquery-1.12.4.min.js"></script>
+    <script src="/public/js/bootstrap.js"></script>
+</head>
+<body>
+<!--页面顶部导航-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">后台管理</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">用户管理<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/user">用户列表</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">分类管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/category">分类列表</a></li>
+
+                        <li><a href="/admin/add">添加分类</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">博文列表 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/content">博文管理</a></li>
+
+                        <li><a href="/admin/addcont">博文添加</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="active"><a href="/admin/bxgl">不想管理 <span class="sr-only"></span></a></li>
+                <li class="active"><a href="/admin/bxxx">不想学习 <span class="sr-only"></span></a></li>
+
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">{{userInfo.username}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">退出</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
+
+{% block main %}  <!-- 占位区块自己命名 -->
+
+
+{% endblock %}
+
+</body>
+</html>

@@ -87,9 +87,34 @@ router.post('/user/login',function(req,res){
 				return;
 			}
 				responseData.message = '登录成功';
+        responseData.userInfo = {
+            _id: userInfo.id,
+            username: userInfo.username,
+            password: userInfo.password
+        }
+        //发送给浏览器保存
+        req.cookies.set('userInfo', JSON.stringify(
+            {
+                _id: userInfo.id,
+                username: userInfo.username,
+                password: userInfo.password
+            }
+            )
+        );
 				res.json(responseData);
 				return;
 		
 	});
 });
+
+//退出
+router.get('/user/logout', function (req, res) {
+    req.cookies.set('userInfo', null);
+    responseData.messages = '退出成功';
+    res.json(responseData);
+    return;
+})
+
+
+
 module.exports = router;
